@@ -1,0 +1,98 @@
+.container {
+  width: 100%;
+  margin: 0 auto;
+  min-height: 100vh;
+  padding: 50px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: rgb(3, 13, 58);
+  color: #c2f8ff;
+}
+
+.dataHead {
+  text-decoration: none;
+  list-style: none;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, 150px);
+  width: 100%;
+}
+
+.dataHead li {
+  font-weight: bold;
+}
+
+.dataBody {
+  width: 100%;
+  text-decoration: none;
+  list-style: none;
+  display: column;
+  color: #fff;
+}
+
+.dataBody li {
+  border-top: 1px solid #fff;
+  font-size: 20px;
+  width: 100%;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, 150px);
+  align-items: center;
+  padding: 20px 0;
+}
+
+.title {
+  width: 95%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 25px;
+  margin-bottom: 60px;
+}
+.title > div {
+  margin-right: 10px;
+  font-size: 20px;
+  font-weight: bold;
+  display: flex;
+  align-items: center;
+}
+
+.title > div a {
+  margin-left: 20px;
+  font-size: 30px;
+  font-weight: bold;
+  padding: 0px 10px 3px 10px;
+}
+
+.datepicker {
+  color: white !important;
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  height: 300px;
+  justify-content: space-evenly;
+}
+
+.imgUser {
+  border-radius: 50%;
+  width: 200px;
+  height: 200px;
+  border: 4px solid #fff;
+  background-image: url(../public/roby.jpg);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+.vet {
+  display: flex;
+  align-items: center;
+  font-size: 12px;
+}
+
+.vet h1 {
+  margin-left: 20px;
+  color: #fff;
+  font-size: 30px;
+}
