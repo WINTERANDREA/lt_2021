@@ -6,7 +6,7 @@ const LoginForm = () => (
   <Grid className="login-background" textAlign='center' style={{ height: '100vh' }} verticalAlign='middle'>
     <Grid.Column style={{ maxWidth: 450 }}>
       
-        <img className="logo" src='/loghi/ell-et_logo_scritta_2.svg' alt="ell-et" /> 
+        <Image className="logo" src='/loghi/ell-et_logo_scritta_2.svg' alt="ell-et" /> 
  
       <Form size='large'>
         <Segment stacked>

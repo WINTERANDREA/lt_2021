@@ -4,6 +4,7 @@ import React, {useState} from 'react'
 import Layout from '../components/Layout'
 import { Table } from 'semantic-ui-react'
 import Link from 'next/link';
+import Image from 'next/image'
 
 
 
@@ -83,8 +84,8 @@ export default function TableExampleSortable({dati}) {
             <Table.Cell><p className="customthead">Quantità</p><p className="customData">{data.qt}</p></Table.Cell>
             <Table.Cell><p className="customthead">Importo</p><p className="customData">€ {data.importo}</p></Table.Cell>
             <Table.Cell><p className="customthead">Percorso</p><p className="customData">{data.percorso}</p></Table.Cell>
-            <Table.Cell><p className="customthead">Modifica</p><Link href={`/${data._id}/edit`}><button ><img className="icon-table edit" src="edit-regular.svg" alt="modifica"/></button></Link></Table.Cell>
-            <Table.Cell><p className="customthead">Elimina</p><Link  href={`/${data._id}`} ><button ><img className="icon-table" src="trash-alt-regular.svg" alt="elimina"/></button></Link></Table.Cell>
+            <Table.Cell><p className="customthead">Modifica</p><Link href={`/${data._id}/edit`}><button ><Image className="icon-table edit" src="edit-regular.svg" alt="modifica"/></button></Link></Table.Cell>
+            <Table.Cell><p className="customthead">Elimina</p><Link  href={`/${data._id}`} ><button ><Image className="icon-table" src="trash-alt-regular.svg" alt="elimina"/></button></Link></Table.Cell>
           </Table.Row>
         ))}
       </Table.Body>
