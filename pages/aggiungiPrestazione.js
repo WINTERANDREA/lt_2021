@@ -13,7 +13,7 @@ import router, {useRouter} from 'next/router'
 const vet = "Roberto Casero"
 
 
-const aggiungiPrestazione = ({prestazioni, allevatori}) => {
+const AggiungiPrestazione = ({prestazioni, allevatori}) => {
   const [isSubmitting, setIsSubmitting] =useState(false);
   const [values, setValues] = useState({
     data: "",
@@ -138,4 +138,4 @@ export async function getServerSideProps() {
 }
 
 
-export default aggiungiPrestazione
+export default AggiungiPrestazione
