@@ -5,7 +5,6 @@ export default async function handler(req,res){
   const {db} = await connectToDatabase();
   const rawData = await req.body;
   const data = await JSON.parse(rawData)
-  console.log("****************" ,data)
 
   const result = await db.collection("2021").insertOne({
     data: data.data,

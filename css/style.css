@@ -1,0 +1,157 @@
+h1 {
+  text-align: center;
+}
+
+.wrapper {
+  max-width: 1200px;
+  padding: 16px;
+  margin: auto;
+}
+
+.navbar {
+  padding: 20px;
+  margin-bottom: 20px;
+  background-color: rgb(0, 0, 0);
+  color: #fff;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.user-nav {
+  display: flex;
+}
+
+.user-nav h1 {
+  margin-left: 20px;
+  cursor: pointer;
+}
+
+.user-nav h1:hover {
+  color: rgb(218, 218, 218);
+}
+
+.navbar .create {
+  color: #fff;
+  font-size: 2.5rem;
+}
+
+.navbar .navbar-brand {
+  color: #fff;
+  font-size: 2rem;
+}
+
+.navbar-brand:hover,
+.create:hover {
+  color: rgb(218, 218, 218);
+}
+
+table {
+  width: 98% !important;
+  margin: auto !important;
+}
+
+.icon-table {
+  width: 15px;
+  cursor: pointer;
+}
+
+.icon-table.edit {
+  width: 18px;
+}
+
+.form-container {
+  max-width: 400px;
+  margin: auto;
+}
+
+form {
+  margin-top: 50px;
+}
+
+input {
+  line-height: 1rem !important;
+}
+
+.customthead {
+  display: none;
+  margin: 0;
+  padding: 5px;
+}
+
+.user-image img {
+  border-radius: 50% !important;
+  border: 3px solid #fff !important;
+}
+
+.login-background {
+  background-color: #fff;
+  width: 90%;
+  margin: auto !important;
+}
+
+.logo {
+  width: 300px;
+  height: 300px;
+}
+
+.ui.stacked.segment:after,
+.ui.stacked.segment:before,
+.ui.stacked.segments:after,
+.ui.stacked.segments:before {
+  border-top: none !important;
+  background: none !important;
+}
+
+.ui.segment {
+  border: none !important;
+  -webkit-box-shadow: none !important;
+  box-shadow: none !important;
+}
+/* .ui.grid,
+.ui.grid > .column:not(.row),
+.ui.grid > .row > .column {
+  width: 90%;
+  margin: auto;
+} */
+@media (max-width: 767px) {
+  thead {
+    display: none !important;
+  }
+  .ui.table td:first-child {
+    font-weight: 400 !important;
+  }
+  .ui.celled.fixed.table tr td {
+    display: flex !important;
+    justify-content: space-between !important;
+    border-bottom: 1px solid rgba(204, 204, 204, 0.24) !important;
+    align-items: center;
+  }
+  .ui.red.button {
+    width: 100%;
+  }
+
+  .user-nav h1,
+  .form-container h1 {
+    font-size: 1.5rem;
+  }
+
+  .ui.table:not(.unstackable) tr {
+    margin-bottom: 30px;
+    padding: 0;
+    border-bottom: none;
+    -webkit-box-shadow: 0 0 0 0 rgba(0, 0, 0, 0) inset !important;
+    box-shadow: 0 0 0 0 rgba(0, 0, 0, 0) inset !important;
+  }
+
+  .ui.fixed.table {
+    border: none;
+  }
+  .customthead {
+    display: inline-block;
+  }
+  .customData {
+    font-weight: 700;
+    font-size: 1.5rem;
+  }
+}

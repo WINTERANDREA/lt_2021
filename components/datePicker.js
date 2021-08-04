@@ -5,9 +5,9 @@ import React from 'react';
 
 
   return (
-    <div style={{width: 300, display: 'flex', justifyContent: 'space-between'}}>
+    <div style={{ display: 'flex', flexDirection:'column', justifyContent: 'space-between'}}>
        <label style={{textTransform:'capitalize'}} htmlFor={props.name}>{props.name}</label>
-      <input onChange={props.onChange} style={{width: 150}} type="date" required/>
+      <input onChange={props.onChange}  type="date"  required/>
   </div>
   );
 }

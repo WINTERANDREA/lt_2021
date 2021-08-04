@@ -1,11 +1,11 @@
 import React from 'react'
 
-const Input = ({width,type, name, onChange, label, min}) => {
+const Input = ({width,type, name, onChange, label, min, value}) => {
   return (
-    <div style={{width: 300, display: 'flex', justifyContent: 'space-between'}}>
+    <div style={{ display: 'flex', flexDirection:'column', justifyContent: 'space-between'}}>
       <label style={{textTransform:'capitalize'}} htmlFor={name}>
         {label}</label>
-        <input style={{width: width || 150}} type={type} name={name} min={min} onChange={onChange} required/>
+        <input type={type} name={name} min={min} value={value} onChange={onChange} required/>
     </div>
   )
 }
