@@ -113,7 +113,7 @@ const AggiungiPrestazione = ({prestazioni, allevatori}) => {
 }
 
 
-export async function getServerSideProps() {
+export async function getStaticProps() {
   const { db } = await connectToDatabase();
   const prestazioni = await db
     .collection("prestazioni")
