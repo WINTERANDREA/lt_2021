@@ -52,12 +52,9 @@ table {
 }
 
 .icon-table {
-  width: 15px;
-  cursor: pointer;
-}
-
-.icon-table.edit {
-  width: 18px;
+  position: relative !important;
+  cursor: pointer !important;
+  height: 100% !important;
 }
 
 .form-container {
@@ -93,6 +90,7 @@ input {
 .logo {
   width: 300px;
   height: 300px;
+  margin: auto;
 }
 
 .ui.stacked.segment:after,
