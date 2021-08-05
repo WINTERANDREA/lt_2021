@@ -34,7 +34,7 @@ export default function CreatePrestazione ({prestazioni, allevatori}) {
 
 
   const saveFormData = async () => {
-    const response = await fetch('https://lt-2021-dblluh5dm-winterandrea.vercel.app/api/addPrestazione', {
+    const response = await fetch('/api/addPrestazione', {
       method: 'POST',
       body: JSON.stringify(values)
     });

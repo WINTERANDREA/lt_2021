@@ -25,7 +25,7 @@ export default function Prestazione ({dati}) {
   const eliminaPrestazione = async () => {
     const prestazioneId = router.query.id
     try{
-      const deleted = await fetch('https://lt-2021-dblluh5dm-winterandrea.vercel.app/api/deletePrestazione', {
+      const deleted = await fetch('/api/deletePrestazione', {
       method: 'DELETE',
       body: JSON.stringify(prestazioneId)
     });
