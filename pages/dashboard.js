@@ -97,7 +97,7 @@ export default function TableExampleSortable({dati}) {
 //  href={`/${prestazione._id/edit}`}
 
 
-export async function getStaticProps() {
+export async function getServerSideProps() {
   const { db } = await connectToDatabase();
   const data = await db
     .collection("2021")
