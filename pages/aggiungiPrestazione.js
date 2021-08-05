@@ -13,7 +13,7 @@ import router, {useRouter} from 'next/router'
 const vet = "Roberto Casero"
 
 
-export default function CreatePrestazione ({prestazioni, allevatori}) => {
+export default function CreatePrestazione ({prestazioni, allevatori}) {
   const [isSubmitting, setIsSubmitting] =useState(false);
   const [values, setValues] = useState({
     data: "",
