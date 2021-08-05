@@ -34,7 +34,7 @@ const EditPrestazione = ({ dati, prestazioni, allevatori}) => {
 
 
   const updateFormData = async () => {
-    const response = await fetch(`http://localhost:3000/api/updatePrestazione/${router.query.id}`, {
+    const response = await fetch(`https://lt-2021-dblluh5dm-winterandrea.vercel.app/api/updatePrestazione/${router.query.id}`, {
       method: 'PUT',
       body: JSON.stringify(values)
     });
