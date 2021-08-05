@@ -125,7 +125,6 @@ export async function getStaticProps() {
    const allevatori = await db
     .collection("allevatori")
     .find({})
-    .sort({ metacritic: -1 })
     .limit(1000)
     .toArray();
 
