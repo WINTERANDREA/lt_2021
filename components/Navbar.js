@@ -13,7 +13,7 @@ const Navbar = () => {
        
         </div>
       
-      <Link href="/AggiungiPrestazione">
+      <Link href="/aggiungiPrestazione">
         <a className="create">+</a>
       </Link>
     </nav>
