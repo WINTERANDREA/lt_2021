@@ -13,7 +13,7 @@ import router, {useRouter} from 'next/router'
 const vet = "Roberto Casero"
 
 
-const AggiungiPrestazione = ({prestazioni, allevatori}) => {
+export default function CreatePrestazione ({prestazioni, allevatori}) => {
   const [isSubmitting, setIsSubmitting] =useState(false);
   const [values, setValues] = useState({
     data: "",
@@ -137,4 +137,3 @@ export async function getStaticProps() {
 }
 
 
-export default AggiungiPrestazione
