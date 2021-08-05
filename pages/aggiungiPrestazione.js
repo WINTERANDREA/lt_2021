@@ -118,7 +118,6 @@ export async function getStaticProps() {
   const prestazioni = await db
     .collection("prestazioni")
     .find({})
-    .sort({ metacritic: -1 })
     .limit(1000)
     .toArray();
 

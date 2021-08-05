@@ -102,7 +102,6 @@ export async function getServerSideProps() {
   const data = await db
     .collection("2021")
     .find({})
-    .sort({ metacritic: -1 })
     .limit(1000)
     .toArray();
 

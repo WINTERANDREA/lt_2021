@@ -112,44 +112,18 @@ const EditPrestazione = ({ dati, prestazioni, allevatori}) => {
 }
 
 
-// export async function getStaticProps() {
-//   const { db } = await connectToDatabase();
-//   const prestazioni = await db
-//     .collection("prestazioni")
-//     .find({})
-//     .sort({ metacritic: -1 })
-//     .limit(1000)
-//     .toArray();
-
-//    const allevatori = await db
-//     .collection("allevatori")
-//     .find({})
-//     .sort({ metacritic: -1 })
-//     .limit(1000)
-//     .toArray();
-
-//   return {
-//     props: {
-//       prestazioni: JSON.parse(JSON.stringify(prestazioni)),
-//       allevatori: JSON.parse(JSON.stringify(allevatori)),
-//     },
-//   };
-// }
-
 export async function getServerSideProps(req) {
 const { db } = await connectToDatabase();
  const data = await db.collection("2021").findOne({"_id": ObjectID(req.query.id)});
  const prestazioni = await db
     .collection("prestazioni")
     .find({})
-    .sort({ metacritic: -1 })
     .limit(1000)
     .toArray();
 
    const allevatori = await db
     .collection("allevatori")
     .find({})
-    .sort({ metacritic: -1 })
     .limit(1000)
     .toArray();
 
