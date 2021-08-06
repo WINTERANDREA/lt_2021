@@ -75,6 +75,7 @@ const EditPrestazione = ({ dati, prestazioni, allevatori}) => {
       {isSubmitting ? <Loader active inline="centered" /> :
       <Form onSubmit={onSubmit}>
         <Form.Field>
+          <label style={{textTransform:'capitalize'}} htmlFor="date"></label>
           <Input type="date" value={values.data} onChange={set('data')}/>
         </Form.Field>
         <Form.Field>

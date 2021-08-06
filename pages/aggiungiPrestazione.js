@@ -75,7 +75,7 @@ export default function CreatePrestazione ({prestazioni, allevatori}) {
       {isSubmitting ? <Loader active inline="centered" /> :
       <Form onSubmit={onSubmit}>
         <Form.Field>
-          <DatePickers name="data" value={values.data} onChange={set('data')}  ></DatePickers>
+          <DatePickers name="data" value={values.data} onChange={set('data')} ></DatePickers>
         </Form.Field>
         <Form.Field>
           <Select name="allevatore" value={values.allevatore} onChange={set('allevatore')} >

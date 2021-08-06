@@ -77,7 +77,7 @@ export default function Prestazione ({dati}) {
             <Table.Cell><p className="customthead">Prestazione</p>{dati.prestazione}</Table.Cell>
             <Table.Cell><p className="customthead">Quantità</p>{dati.qt}</Table.Cell>
             <Table.Cell><p className="customthead">Importo</p>€ {dati.importo}</Table.Cell>
-            <Table.Cell><p className="customthead">Percorso (Km)</p>{dati.percorso}</Table.Cell>
+            <Table.Cell><p className="customthead">Percorso</p>{dati.percorso} Km</Table.Cell>
             <Table.Cell><Button color="red" onClick={open}>Elimina</Button></Table.Cell>
           </Table.Row>
      
