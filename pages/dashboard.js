@@ -65,7 +65,7 @@ export default function TableExampleSortable({dati}) {
             sorted={column === 'sconto' ? direction : null}
             onClick={handleSort('sconto')}
           >
-            Percorso (Km)
+            Percorso
           </Table.HeaderCell>
            <Table.HeaderCell width={1}>
             Modifica
