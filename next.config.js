@@ -1,3 +1,9 @@
+const withPWA = require("next-pwa");
+
 module.exports = {
   reactStrictMode: true,
+  pwa:{
+    dest: "public",
+    swSrc: "service-worker.js"
+  }
 }
