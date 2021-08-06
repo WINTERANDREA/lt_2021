@@ -1,9 +1,9 @@
 const withPWA = require("next-pwa");
-const runtimeCaching = require('next-pwa/cache')
-module.exports = withPWA({
-  // reactStrictMode: true,
+
+module.exports = {
+  reactStrictMode: true,
   pwa:{
     dest: "public",
-    runtimeCaching,
+    swSrc: "service-worker.js"
   }
-})
+}
