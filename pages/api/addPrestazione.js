@@ -13,7 +13,7 @@ export default async function handler(req,res){
     prestazione: data.prestazione,
     importo: data.importo,
     veterinario: data.veterinario,
-    sconto: data.sconto
+    percorso: data.percorso
     })
 
   console.log("data added succesfully", result)

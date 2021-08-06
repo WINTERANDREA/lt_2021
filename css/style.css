@@ -152,4 +152,7 @@ input {
     font-weight: 700;
     font-size: 1.5rem;
   }
+  .form-container {
+    margin: 10px;
+  }
 }
