@@ -3,7 +3,7 @@ import React from 'react'
 const fallback = () => {
   return (
     <div>
-      fallback
+      Pagina offline
     </div>
   )
 }
