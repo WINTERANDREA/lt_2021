@@ -1,13 +1,11 @@
 import React from 'react'
-import Head from 'next/head'
+import CustomHead from './Head'
 import Navbar from './Navbar'
 
 const Layout = ({children}) => {
   return (
     <>
-      <Head>
-        <title>LT APP</title>
-      </Head>
+      <CustomHead />
       <Navbar/>
       {children}
     </>

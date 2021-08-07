@@ -1,8 +1,11 @@
 import Link from 'next/link'
 import React from 'react'
 import { Button, Form, Grid, Header, Image, Message, Segment } from 'semantic-ui-react'
+import CustomHead from '../components/Head'
 
 const LoginForm = () => (
+  <>
+  <CustomHead></CustomHead>
   <Grid className="login-background" textAlign='center' style={{ height: '100vh' }} verticalAlign='middle'>
     <Grid.Column style={{ maxWidth: 450 }}>
       
@@ -30,6 +33,7 @@ const LoginForm = () => (
       </Message> */}
     </Grid.Column>
   </Grid>
+  </>
 )
 
 export default LoginForm
