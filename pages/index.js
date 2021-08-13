@@ -13,7 +13,7 @@ const LoginForm = () => (
  
       <Form size='large'>
         <Segment stacked>
-          <Form.Input fluid icon='user' iconPosition='left' placeholder='E-mail' />
+          <Form.Input fluid icon='user' iconPosition='left' placeholder='Username' />
           <Form.Input
             fluid
             icon='lock'

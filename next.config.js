@@ -1,9 +1,13 @@
-const withPWA = require("next-pwa");
+// const withPWA = require("next-pwa");
 
-module.exports = withPWA({
+// module.exports = withPWA({
+//   reactStrictMode: true,
+//   pwa:{
+//     dest: "public",
+//     swSrc: "service-worker.js"
+//   }
+// })
+
+module.exports = ({
   reactStrictMode: true,
-  pwa:{
-    dest: "public",
-    swSrc: "service-worker.js"
-  }
 })
