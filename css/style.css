@@ -2,6 +2,12 @@ h1 {
   text-align: center;
 }
 
+.addPrestazione {
+  position: absolute;
+  top: 50px;
+  right: 10px;
+}
+
 .wrapper {
   max-width: 1200px;
   padding: 16px;
@@ -62,6 +68,11 @@ table {
   margin: auto;
 }
 
+.custom-width {
+  max-width: 450px;
+  margin: 0 auto;
+}
+
 form {
   margin-top: 50px;
 }
@@ -85,6 +96,9 @@ input {
   background-color: #fff;
   width: 90%;
   margin: auto !important;
+  text-align: center;
+  height: 100vh;
+  margin: auto;
 }
 
 .logo {

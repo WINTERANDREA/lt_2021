@@ -2,6 +2,7 @@ import { MongoClient } from 'mongodb'
 
 const MONGODB_URI = process.env.MONGODB_URI
 const MONGODB_DB = process.env.MONGODB_DB
+const MONGODB_DB_ANAG = process.env.MONGODB_DB_ANAG
 
 if (!MONGODB_URI) {
   throw new Error(
@@ -41,6 +42,7 @@ export async function connectToDatabase() {
       return {
         client,
         db: client.db(MONGODB_DB),
+        dbAnag: client.db(MONGODB_DB_ANAG)
       }
     })
   }

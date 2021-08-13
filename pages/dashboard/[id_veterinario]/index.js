@@ -1,14 +1,17 @@
+
 import _ from 'lodash'
-import { connectToDatabase } from "../util/mongodb";
+import { connectToDatabase } from "../../../util/mongodb";
+import { ObjectID } from "mongodb";
 import React, {useState} from 'react'
-import Layout from '../components/Layout'
+import { useRouter } from 'next/router';
+import Layout from '../../../components/Layout'
 import { Table } from 'semantic-ui-react'
 import Link from 'next/link';
 import {  Image } from 'semantic-ui-react'
 
 
-
-export default function TableExampleSortable({dati}) {
+export default function TableExampleSortable2({dati, vet_id}) {
+  console.log(dati)
    const [column, setColumn] = useState(null);
     const [data, setData] = useState(dati);
     const [direction, setDirection] = useState(null);
@@ -27,7 +30,11 @@ export default function TableExampleSortable({dati}) {
     }
 
   return (
-    <Layout>
+    <Layout vet_name="pino">
+        <div className="addPrestazione">
+          <Link className="create" href={`${vet_id}/aggiungiPrestazione2`}><a>+</a></Link> 
+        </div>
+      
     <Table sortable striped celled fixed>
       <Table.Header>
         <Table.Row>
@@ -84,8 +91,8 @@ export default function TableExampleSortable({dati}) {
             <Table.Cell><p className="customthead">Quantità</p><p className="customData">{data.qt}</p></Table.Cell>
             <Table.Cell><p className="customthead">Importo</p><p className="customData">€ {data.importo}</p></Table.Cell>
             <Table.Cell><p className="customthead">Percorso</p><p className="customData">{data.percorso} Km</p></Table.Cell>
-            <Table.Cell><p className="customthead">Modifica</p><Link href={`/${data._id}/edit`}><button ><Image width={18} className="icon-table edit" src="edit-regular.svg" alt="modifica"/></button></Link></Table.Cell>
-            <Table.Cell><p className="customthead">Elimina</p><Link  href={`/${data._id}`} ><button ><Image  width={15}  className="icon-table" src="trash-alt-regular.svg" alt="elimina"/></button></Link></Table.Cell>
+            <Table.Cell><p className="customthead">Modifica</p><Link href={`/${data._id}/edit`}><button ><Image width={18} className="icon-table edit" src="../../edit-regular.svg" alt="modifica"/></button></Link></Table.Cell>
+            <Table.Cell><p className="customthead">Elimina</p><Link  href={`/${data._id}`} ><button ><Image  width={15}  className="icon-table" src="../../trash-alt-regular.svg" alt="elimina"/></button></Link></Table.Cell>
           </Table.Row>
         ))}
       </Table.Body>
@@ -94,21 +101,21 @@ export default function TableExampleSortable({dati}) {
   )
 }
 
-//  href={`/${prestazione._id/edit}`}
-
-
-export async function getServerSideProps() {
+export async function getServerSideProps(ctx) {
+  const vet_id = ctx.query.id_veterinario
+  console.log("*******************",vet_id)
   const { db } = await connectToDatabase();
   const data = await db
     .collection("2021")
-    .find({})
+    .find({veterinario_id: ObjectID(vet_id)})
     .limit(1000)
     .toArray();
 
 
   return {
     props: {
-      dati: JSON.parse(JSON.stringify(data))
+      dati: JSON.parse(JSON.stringify(data)),
+      vet_id: vet_id
     },
   };
 }

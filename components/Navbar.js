@@ -2,20 +2,20 @@ import Link from 'next/link';
 import UserImg from './UserImg';
 import roby from '../public/roby.jpg'
 
-const Navbar = () => {
+const Navbar = ({href, vet_name}) => {
   return (
     <nav className="navbar">
       <div className="user-nav">
          <UserImg src={roby} />
       <Link href="/dashboard">
-        <h1>Roberto Casero</h1>
+        <h1>{vet_name}</h1>
       </Link>
        
         </div>
       
-      <Link href="/aggiungiPrestazione">
+      {/* <Link >
         <a className="create">+</a>
-      </Link>
+      </Link> */}
     </nav>
   )
 }

@@ -1,19 +1,21 @@
 import React, {useState} from 'react'
-import { connectToDatabase } from "../util/mongodb";
-import Layout from '../components/Layout'
+import { connectToDatabase } from "../../../util/mongodb";
+
+import Layout from '../../../components/Layout'
 import Link from 'next/link'
-import styles from '../styles/Dashboard.module.css'
-import DatePickers from '../components/datePicker'
-import Input from '../components/input'
-import Select from '../components/select'
+import styles from '../../../styles/Dashboard.module.css'
+import DatePickers from '../../../components/datePicker'
+import Input from '../../../components/input'
+import Select from '../../../components/select'
 import {Loader, Button, Form} from 'semantic-ui-react'
 import router, {useRouter} from 'next/router'
-
 
 const vet = "Roberto Casero"
 
 
-export default function CreatePrestazione ({prestazioni, allevatori}) {
+export default function CreatePrestazione2 ({prestazioni, allevatori, id_veterinario}) {
+  const vet_id = id_veterinario;
+  console.log(vet_id)
   const [isSubmitting, setIsSubmitting] =useState(false);
   const [values, setValues] = useState({
     data: "",
@@ -23,6 +25,7 @@ export default function CreatePrestazione ({prestazioni, allevatori}) {
     importo: "",
     veterinario: vet,
     percorso: "",
+    veterinario_id: vet_id
   })
 
  const set = name => {
@@ -68,7 +71,7 @@ export default function CreatePrestazione ({prestazioni, allevatori}) {
 
 
   return (
-    <Layout href="/">
+    <Layout>
     <div className="form-container">
       <h1>Aggiungi Prestazione</h1>
       
@@ -114,7 +117,7 @@ export default function CreatePrestazione ({prestazioni, allevatori}) {
 
 
 export async function getServerSideProps(ctx) {
-  console.log(ctx)
+  const id_veterinario = ctx.query.id_veterinario
   const { db } = await connectToDatabase();
   const prestazioni = await db
     .collection("prestazioni")
@@ -132,6 +135,7 @@ export async function getServerSideProps(ctx) {
     props: {
       prestazioni: JSON.parse(JSON.stringify(prestazioni)),
       allevatori: JSON.parse(JSON.stringify(allevatori)),
+      id_veterinario: id_veterinario
     },
   };
 }
