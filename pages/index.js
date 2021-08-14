@@ -3,9 +3,10 @@ import {useState} from 'react'
 import { Button, Form, Grid, Header, Image, Message, Segment } from 'semantic-ui-react'
 import CustomHead from '../components/Head'
 
-export default function Index ({dati}){
+export default function Index (){
   const [username, setUsername] = useState('')
   const [password, setPassword] = useState('')
+  const [message, setMessage] = useState()
 
   const handleSubmit = async ()=> {
     console.log(username, password)
@@ -21,10 +22,12 @@ export default function Index ({dati}){
   })
   const json = await resp.json()
   console.log(json)
+  setMessage(json)
   }
   return (
   <>
   <CustomHead></CustomHead>
+  {JSON.stringify(message)}
   <Grid className="login-background" textAlign='center' style={{ height: '100vh' }} verticalAlign='middle'>
     <Grid.Column style={{ maxWidth: 450 }}>
       

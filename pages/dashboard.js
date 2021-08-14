@@ -8,7 +8,7 @@ import {  Image } from 'semantic-ui-react'
 
 
 
-export default function TableExampleSortable({dati}) {
+export default function Dashboard({dati}) {
    const [column, setColumn] = useState(null);
     const [data, setData] = useState(dati);
     const [direction, setDirection] = useState(null);
