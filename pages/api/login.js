@@ -5,7 +5,7 @@ import cookie from 'cookie'
 
 export default async function handler(req,res){
 const { db } = await connectToDatabase();
-const secret = process.env.JWT_SECRET
+const secret = process.env.JWT_SECRET;
 
 
 if (req.method === "POST"){

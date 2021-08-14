@@ -1,4 +1,6 @@
-async function customGet(url, ctx){
+import Router from 'next/router'
+
+export async function customGet(url, ctx){
   const cookie = ctx.req?.headers.cookie;
 
   const resp = await fetch(url, {

@@ -2,11 +2,11 @@ import React from 'react'
 import CustomHead from './Head'
 import Navbar from './Navbar'
 
-const Layout = ({children}) => {
+const Layout = ({children, vet}) => {
   return (
     <>
       <CustomHead />
-      <Navbar/>
+      <Navbar vet={vet}/>
       {children}
     </>
   )
