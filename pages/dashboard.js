@@ -1,14 +1,17 @@
-import _ from 'lodash'
-import { connectToDatabase } from "../util/mongodb";
+import { connectToDatabase } from "/util/mongodb";
+import { ObjectID } from "mongodb";
+import jwt from 'jsonwebtoken'
 import {useState} from 'react'
 import Layout from '../components/Layout'
 import { Table } from 'semantic-ui-react'
 import Link from 'next/link';
 import {  Image } from 'semantic-ui-react'
+import _ from 'lodash'
+const secret = process.env.JWT_SECRET
 
-
-
-export default function Dashboard({dati}) {
+export default function Dashboard2({dati, vet}){
+  console.log(vet)
+  
    const [column, setColumn] = useState(null);
     const [data, setData] = useState(dati);
     const [direction, setDirection] = useState(null);
@@ -27,7 +30,7 @@ export default function Dashboard({dati}) {
     }
 
   return (
-    <Layout>
+    <Layout vet={`${vet.name} ${vet.surname}`}>
     <Table sortable striped celled fixed>
       <Table.Header>
         <Table.Row>
@@ -94,18 +97,22 @@ export default function Dashboard({dati}) {
   )
 }
 
-export async function getServerSideProps() {
-  const { db } = await connectToDatabase();
-  const data = await db
+export async function getServerSideProps(context) {
+    var decoded = jwt.verify(context.req.cookies.auth, secret);
+    const vet = decoded
+    
+    const { db } = await connectToDatabase();
+    const data = await db
     .collection("2021")
-    .find({})
+    .find({veterinario_id: ObjectID(vet.id)})
     .limit(1000)
     .toArray();
 
 
-  return {
-    props: {
-      dati: JSON.parse(JSON.stringify(data))
-    },
+    return {
+      props: {
+        dati: JSON.parse(JSON.stringify(data)),
+        vet: vet
+      },
   };
 }

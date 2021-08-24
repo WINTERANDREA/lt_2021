@@ -1,5 +1,5 @@
 import Link from 'next/link'
-import {useState} from 'react'
+import {useState, useEffect} from 'react'
 import { Button, Form, Grid, Header, Image, Message, Segment } from 'semantic-ui-react'
 import CustomHead from '../components/Head'
 import { useRouter } from 'next/router'
@@ -7,7 +7,8 @@ import { useRouter } from 'next/router'
 export default function Index (){
   const [username, setUsername] = useState('')
   const [password, setPassword] = useState('')
-  const [message, setMessage] = useState()
+  const [message, setMessage] = useState('')
+  const [showMessage, setShowMessage] = useState(false)
   const router = useRouter()
 
   const handleSubmit = async ()=> {
@@ -23,19 +24,31 @@ export default function Index (){
     })
   })
   const json = await resp.json()
-  console.log(json)
+  console.log('ssss',json)
   setMessage(json)
-  if(json.message == "Welcome back to the app!"){
-    router.push('/dashboard2')
+  
+  
+  if(json.message == "user"){
+    router.push('/dashboard')
+    console.log("logged in")
   } else{
-    console.log('pino', json.message)
+    setUsername('')
+    setPassword('')
+    setShowMessage(true)
+    
+    console.log(username, password, 'pino', json.message)
   }
+  
+  
   }
+
+  useEffect(() => {
+    setShowMessage(false)
+  },[username, password]);
   return (
   <>
   <CustomHead></CustomHead>
-  {JSON.stringify(message)}
-  <Link href="/dashboard2">Dashboard</Link>
+  <Link href="/dashboard">Dashboard</Link>
   <Grid className="login-background" textAlign='center' style={{ height: '100vh' }} verticalAlign='middle'>
     <Grid.Column style={{ maxWidth: 450 }}>
       
@@ -43,10 +56,11 @@ export default function Index (){
  
       <Form size='large' onSubmit={handleSubmit}>
         <Segment stacked>
-          <Form.Input fluid icon='user' iconPosition='left' placeholder='Username' onChange={(e)=> setUsername(e.target.value)} />
+          <Form.Input fluid icon='user' value={username} iconPosition='left' placeholder='Username' onChange={(e)=> setUsername(e.target.value)} />
           <Form.Input
             fluid
             icon='lock'
+            value={password}
             iconPosition='left'
             placeholder='Password'
             type='password'
@@ -55,6 +69,7 @@ export default function Index (){
             <Button color='black' type="submit" fluid size='large'>
               Accedi
             </Button>
+            {showMessage && <div className="ui red message">{message.message}</div> }
         </Segment>
       </Form>
       {/* <Message>

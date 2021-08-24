@@ -1,4 +1,5 @@
 import { connectToDatabase } from "../../util/mongodb";
+import { ObjectID } from "mongodb";
 
 export default async function handler(req,res){
   
@@ -13,7 +14,10 @@ export default async function handler(req,res){
     prestazione: data.prestazione,
     importo: data.importo,
     veterinario: data.veterinario,
-    percorso: data.percorso
+    percorso: data.percorso,
+    veterinario_id: new ObjectID(data.veterinario_id)
+
+
     })
 
   console.log("data added succesfully", result)

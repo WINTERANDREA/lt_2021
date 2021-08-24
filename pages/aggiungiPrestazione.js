@@ -8,12 +8,15 @@ import Input from '../components/input'
 import Select from '../components/select'
 import {Loader, Button, Form} from 'semantic-ui-react'
 import router, {useRouter} from 'next/router'
+const secret = process.env.JWT_SECRET
+import jwt from 'jsonwebtoken'
 
 
-const vet = "Roberto Casero"
 
 
-export default function CreatePrestazione ({prestazioni, allevatori}) {
+
+export default function CreatePrestazione ({prestazioni, allevatori, vet}) {
+  console.log(vet)
   const [isSubmitting, setIsSubmitting] =useState(false);
   const [values, setValues] = useState({
     data: "",
@@ -21,8 +24,9 @@ export default function CreatePrestazione ({prestazioni, allevatori}) {
     quantità: "",
     prestazione: "",
     importo: "",
-    veterinario: vet,
+    veterinario: `${vet.name} ${vet.surname}`,
     percorso: "",
+    veterinario_id: vet.id
   })
 
  const set = name => {
@@ -113,7 +117,9 @@ export default function CreatePrestazione ({prestazioni, allevatori}) {
 }
 
 
-export async function getStaticProps() {
+export async function getServerSideProps(context) {
+  var decoded = jwt.verify(context.req.cookies.auth, secret);
+  const vet = decoded
   const { db } = await connectToDatabase();
   const prestazioni = await db
     .collection("prestazioni")
@@ -131,6 +137,7 @@ export async function getStaticProps() {
     props: {
       prestazioni: JSON.parse(JSON.stringify(prestazioni)),
       allevatori: JSON.parse(JSON.stringify(allevatori)),
+      vet: JSON.parse(JSON.stringify(vet))
     },
   };
 }

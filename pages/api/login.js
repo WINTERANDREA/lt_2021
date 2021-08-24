@@ -9,11 +9,12 @@ const secret = process.env.JWT_SECRET;
 
 
 if (req.method === "POST"){
+  try {
    const database = await db;
    const veterinario = await database.collection("anagrafica_veterinario").findOne({username: req.body.username})
 
     //add validation if person is defined 
-    console.log(req.body.password)
+    //console.log(req.body.password)
     compare(req.body.password, veterinario.password, function(err,result){
       if(!err && result) {
         const payload = {
@@ -30,12 +31,20 @@ if (req.method === "POST"){
           maxAge: 3600, //60 * 60 * 24 * 365 -> 1year
           path: '/'
         }))
-        res.json({message: 'Welcome back to the app!'})
+        // res.status(200).json({ roles: user, auth: false });
+        res.json({message: 'user'})
+        
       }else{
-        res.json({messsage: 'Ups, something went wrong'})
+        res.json({message: 'Ups, credenziali non corrette1'})
       }
     });
+}
+  catch(err){
+    res.json({message: 'Ups, credenziali non corrette2'})
+    console.log(err)
+  }
+  
+   
 }else {
   res.status(405).json({ message: 'We only support POST'})
-}
-}
+}}
